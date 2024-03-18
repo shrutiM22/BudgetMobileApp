@@ -15,17 +15,20 @@ const BudgetEntry = ({ navigation }) => {
   const dispatch = useDispatch();
 
   const onSave = () => {
+    const plannedAmountNum = parseFloat(plannedAmount);
+    const actualAmountNum = parseFloat(actualAmount);
+
     if (budgetName.trim().length === 0) {
       Alert.alert("please add a budget");
       setBudgetName("");
       return;
     }
-    if (actualAmount.trim().length === 0) {
+    if (isNaN(plannedAmountNum)) {
       Alert.alert("please add actual amount");
       setActualAmount("");
       return;
     }
-    if (plannedAmount.trim().length === 0) {
+    if (isNaN(plannedAmountNum)) {
       Alert.alert("please add planned amount");
       setPlannedAmount("");
       return;
@@ -33,8 +36,8 @@ const BudgetEntry = ({ navigation }) => {
     dispatch(
       addBudget({
         budgetName: budgetName,
-        plannedAmount: plannedAmount,
-        actualAmount: actualAmount,
+        plannedAmount: plannedAmountNum,
+        actualAmount: actualAmountNum,
       })
     );
     setBudgetName("");
@@ -108,7 +111,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   showbtn: {
-    backgroundColor: "#DED0B6",
+    backgroundColor: "#B2A59B",
     padding: 10,
     margin: 10,
     width: "50%",
