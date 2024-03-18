@@ -23,7 +23,7 @@ const BudgetEntry = ({ navigation }) => {
       setBudgetName("");
       return;
     }
-    if (isNaN(plannedAmountNum)) {
+    if (isNaN(actualAmountNum)) {
       Alert.alert("please add actual amount");
       setActualAmount("");
       return;
