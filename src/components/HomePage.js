@@ -9,7 +9,7 @@ const HomePage = ({ navigation }) => {
         style={styles.startbtn}
         onPress={() => navigation.navigate("Entry")}
       >
-        <Text>Lessgo</Text>
+        <Text>Click Me!</Text>
       </TouchableOpacity>
     </View>
   );
